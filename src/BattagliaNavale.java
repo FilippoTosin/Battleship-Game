@@ -17,12 +17,13 @@ public class BattagliaNavale {
 
     // Metodo che inserisce la nave
     public static int[][] inserimentoNave (int[][] campo, int[] infoNave){
-
+        return campo;
     }
 
 
     // Metodo che controlla se le celle sono libere per l'inserimento
     public static boolean controlloCelle (int[][] campo, int[] infoNave){
+        int i;
         for(i=0;i<infoNave[3];i++){       // infoNave[2] -> 0: orizzontale, 1: verticale
             if(infoNave[1]+i<0 && infoNave[1]+i>=10)
                 return false;
@@ -50,11 +51,15 @@ public class BattagliaNavale {
                 if(controlloCelle(campoPc,infoNave)==true)
                     campoPc=inserimentoNave(campoPc, infoNave);
             }
+        return campoPc;
     }
 
 
     // Metodo riempimento campo del giocatore
     public static int[][] riempimentoCampoPlayer(int[][] campoPlayer, int[][] navi){
+
+
+        return campoPlayer;
     }
 
 
@@ -63,19 +68,20 @@ public class BattagliaNavale {
 
         Scanner in = new Scanner (System.in);
 
-        int c=0;
+        int i, j;
+
         int[][] campoPlayer = new int [10][10];
         int[][] campoPC = new int [10][10];
         int[][] campoColpi = new int [10][10];
-        int[][] navi = new int [2][4];      // Riga zero lunghezza, riga uno quantità
+        int[][] listaNavi = new int [2][4];      // Riga zero lunghezza, riga uno quantità
         int[] infoNave = new int [4];     // Riga, colonna, direzione, lunghezza
 
         for(i=0,j=4; i<4; i++,j--){     // Assegnamento valori nella matrice navi
-            navi[0][i]=j;
+            listaNavi[0][i]=j;
             if(i==0)
-                navi[1][i]=1;
+                listaNavi[1][i]=1;
             else
-                navi[1][i]=2;
+                listaNavi[1][i]=2;
         }
 
         campoPlayer=creazioneCampo();
