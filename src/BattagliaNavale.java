@@ -20,14 +20,22 @@ public class BattagliaNavale {
                     System.out.print(" ");
                 System.out.print((i-1)/2+1+" ");
                 for(j=0;j<10;j++) {
-                    System.out.print("| " + campoPlayer[(i - 1) / 2][j] + " ");
+                    System.out.print("| ");
+                    if(campoPlayer[(i - 1) / 2][j]==1)
+                        System.out.print("1 ");
+                    else
+                        System.out.print("  ");
                 }
                 System.out.print("|     ");
                 if (i<10*2)
                     System.out.print(" ");
                 System.out.print((i-1)/2+1+" ");
                 for(j=0;j<10;j++) {
-                    System.out.print("| " + campoPc[(i - 1) / 2][j] + " ");
+                    System.out.print("| ");
+                    if(campoPc[(i - 1) / 2][j]<2)
+                        System.out.print("  ");
+                    else
+                        System.out.print(campoPc[(i - 1) / 2][j]+" ");
                 }
                 System.out.println("|");
             }
@@ -112,7 +120,7 @@ public class BattagliaNavale {
         for(i=0; i<4; i++)
             for(j=0;j<listaNavi[1][i];j++) {
                 do {
-                    infoNave[3]=listaNavi[0][j];
+                    infoNave[3]=listaNavi[0][i];
                     System.out.println("Inserimento nave lunghezza " + listaNavi[0][j]);
                     do {
                         System.out.println("Inserire riga (valore tra 1 e 10 compresi):");
@@ -133,6 +141,7 @@ public class BattagliaNavale {
                 }
                 while (valido==false);
                 inserimentoNave(campoPlayer, infoNave);
+                System.out.flush();
                 stampaCampo(campoPlayer, campoPlayer);
             }
         return campoPlayer;
