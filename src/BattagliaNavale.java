@@ -141,7 +141,6 @@ public class BattagliaNavale {
                 }
                 while (valido==false);
                 inserimentoNave(campoPlayer, infoNave);
-                System.out.flush();
                 stampaCampo(campoPlayer, campoPlayer);
             }
         return campoPlayer;
