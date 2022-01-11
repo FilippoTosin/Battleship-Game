@@ -7,12 +7,12 @@ public class BattagliaNavale {
     // Metodo che stampa a schermo il campo del giocatore
     public static void stampaCampo(int[][] campoPlayer, int[][] campoPc){
         int i, j;
-        System.out.println("                      CAMPO                                      CAMPO AVVERSARIO");
+        System.out.println("                     CAMPO                                       CAMPO AVVERSARIO");
         for(i=0;i<=10*2+1;i++){
             if(i%2!=0)
-                System.out.println("    + - + - + - + - + - + - + - + - + - + - +       + - + - + - + - + - + - + - + - + - + - +");
+                System.out.println("    + - + - + - + - + - + - + - + - + - + - +        + - + - + - + - + - + - + - + - + - + - +");
             else if (i==0)
-                System.out.println("      A   B   C   D   E   F   G   H   I   L           A   B   C   D   E   F   G   H   I   L");
+                System.out.println("      A   B   C   D   E   F   G   H   I   L            A   B   C   D   E   F   G   H   I   L");
             else {
                 if (i<10*2)
                     System.out.print("  ");
@@ -21,7 +21,7 @@ public class BattagliaNavale {
                 System.out.print((i-1)/2+1+" ");
                 for(j=0;j<10;j++)
                     System.out.print("| "+campoPlayer[(i-1)/2][j]+" ");
-                System.out.print("|    ");
+                System.out.print("|     ");
                 if (i<10*2)
                     System.out.print(" ");
                 System.out.print((i-1)/2+1+" ");
