@@ -42,6 +42,7 @@ public class BattagliaNavale {
         }
     }
 
+
     // Metodo che crea la matrice del campo inserendo zeri in ogni cella
     public static int[][] creazioneCampo (){
         int i, j;
@@ -84,6 +85,14 @@ public class BattagliaNavale {
     }
 
 
+    // Metodo che genera un numero random dati gli estremi (inclusi)
+    public static int numeroRandom(int min, int max) {
+        Random rand = new Random();
+
+        return rand.nextInt((max - min) + 1) + min;
+    }
+
+
     // Metodo che inserisce le navi nel campo del PC
     public static int[][] riempimentoPc (int[][] campoPc, int[][] listaNavi){
         boolean valido;
@@ -95,9 +104,9 @@ public class BattagliaNavale {
             for(j=0;j<listaNavi[1][i];j++) {
                 valido=false;
                 do {
-                    infoNave[0] = rand.nextInt(10);
-                    infoNave[1] = rand.nextInt(10);
-                    infoNave[2] = rand.nextInt(2);
+                    infoNave[0] = numeroRandom(0,9);
+                    infoNave[1] = numeroRandom(0,9);
+                    infoNave[2] = numeroRandom(0,1);
                     infoNave[3] = listaNavi[0][i];
                     if (controlloCelle(campoPc, infoNave) == true) {
                         campoPc = inserimentoNave(campoPc, infoNave);
@@ -121,7 +130,7 @@ public class BattagliaNavale {
             for(j=0;j<listaNavi[1][i];j++) {
                 do {
                     infoNave[3]=listaNavi[0][i];
-                    System.out.println("Inserimento nave lunghezza " + listaNavi[0][j]);
+                    System.out.println("Inserimento nave lunghezza " + listaNavi[0][i]);
                     do {
                         System.out.println("Inserire riga (valore tra 1 e 10 compresi):");
                         infoNave[0] = in.nextInt() - 1;
@@ -136,8 +145,10 @@ public class BattagliaNavale {
                         System.out.println("Inserire direzione (0->orizzontale, 1->verticale):");
                         infoNave[2] = in.nextInt();
                     }
-                    while (infoNave[2] < 0 || infoNave[2] > 1);
+                    while (infoNave[2] < 0 || infoNave[2]+i > 1);
                     valido=controlloCelle(campoPlayer, infoNave);
+                    if (valido==false)
+                        System.out.println("Inserimento invalido. Riprova");
                 }
                 while (valido==false);
                 inserimentoNave(campoPlayer, infoNave);
@@ -167,10 +178,12 @@ public class BattagliaNavale {
                 listaNavi[1][i]=2;
         }
 
-        campoPlayer=creazioneCampo();
         campoPc=creazioneCampo();
-        campoPlayer=riempimentoPlayer(campoPlayer, listaNavi);
+        campoPlayer=creazioneCampo();
+
         campoPc=riempimentoPc(campoPc, listaNavi);
+        campoPlayer=riempimentoPlayer(campoPlayer, listaNavi);
+
         //campoColpi=creazioneCampo();
 
         stampaCampo(campoPlayer, campoPc);
