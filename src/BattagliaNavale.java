@@ -80,7 +80,7 @@ public class BattagliaNavale {
     public static int[][] riempimentoPc (int[][] campoPc, int[][] listaNavi){
         boolean valido;
         int i, j;
-        int[] infoNave = new int [4];
+        int[] infoNave = new int [4];       // Riga, colonna, direzione, lunghezza
         Random rand = new Random();
 
         for(i=0;i<4;i++)
@@ -106,7 +106,7 @@ public class BattagliaNavale {
     public static int[][] riempimentoPlayer(int[][] campoPlayer, int[][] listaNavi){
         boolean valido;
         int i, j;
-        int[] infoNave = new int [4];
+        int[] infoNave = new int [4];       // Riga, colonna, direzione, lunghezza
         Scanner in = new Scanner (System.in);
 
         for(i=0; i<4; i++)
@@ -150,7 +150,6 @@ public class BattagliaNavale {
         int[][] campoPc = new int [10][10];
         //int[][] campoColpi = new int [10][10];
         int[][] listaNavi = new int [2][4];      // Riga zero lunghezza, riga uno quantità
-        int[] infoNave = new int [4];     // Riga, colonna, direzione, lunghezza
 
         for(i=0,j=4; i<4; i++,j--){     // Assegnamento valori nella matrice navi
             listaNavi[0][i]=j;
