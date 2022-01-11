@@ -4,7 +4,35 @@ import java.util.*;
 public class BattagliaNavale {
 
 
-    // Metodo che crea la matrice del campo
+    // Metodo che stampa a schermo il campo del giocatore
+    public static void stampaCampo(int[][] campoPlayer, int[][] campoPc){
+        int i, j;
+        System.out.println("                      CAMPO                                      CAMPO AVVERSARIO");
+        for(i=0;i<=10*2+1;i++){
+            if(i%2!=0)
+                System.out.println("    + - + - + - + - + - + - + - + - + - + - +       + - + - + - + - + - + - + - + - + - + - +");
+            else if (i==0)
+                System.out.println("      A   B   C   D   E   F   G   H   I   L           A   B   C   D   E   F   G   H   I   L");
+            else {
+                if (i<10*2)
+                    System.out.print("  ");
+                else
+                    System.out.print(" ");
+                System.out.print((i-1)/2+1+" ");
+                for(j=0;j<10;j++)
+                    System.out.print("| "+campoPlayer[(i-1)/2][j]+" ");
+                System.out.print("|    ");
+                if (i<10*2)
+                    System.out.print(" ");
+                System.out.print((i-1)/2+1+" ");
+                for(j=0;j<10;j++)
+                    System.out.print("| "+campoPc[(i-1)/2][j]+" ");
+                System.out.println("|");
+            }
+        }
+    }
+
+    // Metodo che crea la matrice del campo inserendo zeri in ogni cella
     public static int[][] creazioneCampo (){
         int i, j;
         int[][] campo = new int [10][10];
@@ -17,6 +45,7 @@ public class BattagliaNavale {
 
     // Metodo che inserisce la nave
     public static int[][] inserimentoNave (int[][] campo, int[] infoNave){
+        //
         return campo;
     }
 
@@ -57,8 +86,7 @@ public class BattagliaNavale {
 
     // Metodo riempimento campo del giocatore
     public static int[][] riempimentoCampoPlayer(int[][] campoPlayer, int[][] navi){
-
-
+        //
         return campoPlayer;
     }
 
@@ -71,8 +99,8 @@ public class BattagliaNavale {
         int i, j;
 
         int[][] campoPlayer = new int [10][10];
-        int[][] campoPC = new int [10][10];
-        int[][] campoColpi = new int [10][10];
+        int[][] campoPc = new int [10][10];
+        //int[][] campoColpi = new int [10][10];
         int[][] listaNavi = new int [2][4];      // Riga zero lunghezza, riga uno quantità
         int[] infoNave = new int [4];     // Riga, colonna, direzione, lunghezza
 
@@ -85,8 +113,10 @@ public class BattagliaNavale {
         }
 
         campoPlayer=creazioneCampo();
-        campoPC=creazioneCampo();
-        campoColpi=creazioneCampo();
+        campoPc=creazioneCampo();
+        //campoColpi=creazioneCampo();
+
+        stampaCampo(campoPlayer, campoPc);
 
 
     }
