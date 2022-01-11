@@ -85,7 +85,7 @@ public class BattagliaNavale {
     }
 
 
-    // Metodo che genera un numero random dati gli estremi (inclusi)
+    // Metodo che genera un numero casuale dati i due estremi di un range (inclusi)
     public static int numeroRandom(int min, int max) {
         Random rand = new Random();
 
