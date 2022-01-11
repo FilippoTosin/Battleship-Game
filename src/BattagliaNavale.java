@@ -45,7 +45,15 @@ public class BattagliaNavale {
 
     // Metodo che inserisce la nave
     public static int[][] inserimentoNave (int[][] campo, int[] infoNave){
-        //
+        int i;
+        for(i=0;i<infoNave[3];i++){
+            if(infoNave[2]==0){
+                campo[infoNave[0]][infoNave[1]+i]=1;
+            }
+            else if(infoNave[2]==1){
+                campo[infoNave[0]+i][infoNave[1]]=1;
+            }
+        }
         return campo;
     }
 
