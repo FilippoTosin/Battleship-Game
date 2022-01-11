@@ -61,6 +61,7 @@ public class BattagliaNavale {
     // Metodo che controlla se le celle sono libere per l'inserimento
     public static boolean controlloCelle (int[][] campo, int[] infoNave){
         int i;
+
         for(i=0;i<infoNave[3];i++){       // infoNave[2] -> 0: orizzontale, 1: verticale
             if(infoNave[1]+i<0 && infoNave[1]+i>=10)
                 return false;
@@ -74,27 +75,61 @@ public class BattagliaNavale {
 
 
     // Metodo che inserisce le navi nel campo del PC
-    public static int[][] riempimentoCampo (int[][] campoPc, int[][] navi){
+    public static int[][] riempimentoPc (int[][] campoPc, int[][] listaNavi){
+        boolean valido;
         int i, j;
-        Random rand = new Random();
         int[] infoNave = new int [4];
+        Random rand = new Random();
 
         for(i=0;i<4;i++)
-            for(j=0;j<navi[1][i];j++) {
-                infoNave[0]=rand.nextInt(10);
-                infoNave[1]=rand.nextInt(10);
-                infoNave[2]=rand.nextInt(2);
-                infoNave[3]=navi[0][i];
-                if(controlloCelle(campoPc,infoNave)==true)
-                    campoPc=inserimentoNave(campoPc, infoNave);
+            for(j=0;j<listaNavi[1][i];j++) {
+                valido=false;
+                do {
+                    infoNave[0] = rand.nextInt(10);
+                    infoNave[1] = rand.nextInt(10);
+                    infoNave[2] = rand.nextInt(2);
+                    infoNave[3] = listaNavi[0][i];
+                    if (controlloCelle(campoPc, infoNave) == true) {
+                        campoPc = inserimentoNave(campoPc, infoNave);
+                        valido=true;
+                    }
+                }
+                while(valido==false);
             }
         return campoPc;
     }
 
 
     // Metodo riempimento campo del giocatore
-    public static int[][] riempimentoCampoPlayer(int[][] campoPlayer, int[][] navi){
-        //
+    public static int[][] riempimentoPlayer(int[][] campoPlayer, int[][] listaNavi){
+        boolean valido;
+        int i, j;
+        int[] infoNave = new int [4];
+        Scanner in = new Scanner (System.in);
+
+        for(i=0; i<4; i++)
+            for(j=0;j<listaNavi[1][i];j++) {
+                do {
+                    System.out.println("Inserimento nave lunghezza " + listaNavi[0][j]);
+                    do {
+                        System.out.println("Inserire riga (valore tra 1 e 10 compresi):");
+                        infoNave[0] = in.nextInt() - 1;
+                    }
+                    while (infoNave[0] < 1 || infoNave[0] > 10);
+                    do {
+                        System.out.println("Inserire colonna (valore tra 1 e 10 compresi):");
+                        infoNave[1] = in.nextInt() - 1;
+                    }
+                    while (infoNave[1] < 1 || infoNave[1] > 10);
+                    do {
+                        System.out.println("Inserire direzione (0->orizzontale, 1->verticale):");
+                        infoNave[2] = in.nextInt() - 1;
+                    }
+                    while (infoNave[2] < 0 || infoNave[2] > 1);
+                    valido=controlloCelle(campoPlayer,infoNave);
+                }
+                while (valido==false);
+            }
         return campoPlayer;
     }
 
