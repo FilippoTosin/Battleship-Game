@@ -157,6 +157,8 @@ public class BattagliaNavale {
 
         campoPlayer=creazioneCampo();
         campoPc=creazioneCampo();
+        campoPlayer=riempimentoPlayer(campoPlayer, listaNavi);
+        campoPc=riempimentoPc(campoPc, listaNavi);
         //campoColpi=creazioneCampo();
 
         stampaCampo(campoPlayer, campoPc);
