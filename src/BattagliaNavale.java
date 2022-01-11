@@ -19,14 +19,16 @@ public class BattagliaNavale {
                 else
                     System.out.print(" ");
                 System.out.print((i-1)/2+1+" ");
-                for(j=0;j<10;j++)
-                    System.out.print("| "+campoPlayer[(i-1)/2][j]+" ");
+                for(j=0;j<10;j++) {
+                    System.out.print("| " + campoPlayer[(i - 1) / 2][j] + " ");
+                }
                 System.out.print("|     ");
                 if (i<10*2)
                     System.out.print(" ");
                 System.out.print((i-1)/2+1+" ");
-                for(j=0;j<10;j++)
-                    System.out.print("| "+campoPc[(i-1)/2][j]+" ");
+                for(j=0;j<10;j++) {
+                    System.out.print("| " + campoPc[(i - 1) / 2][j] + " ");
+                }
                 System.out.println("|");
             }
         }
