@@ -39,14 +39,14 @@ public class BattagliaNavale {
     // Metodo che inserisce le navi nel campo del PC
     public static int[][] riempimentoCampo (int[][] campoPc, int[][] navi){
         int i, j;
-        Random rnd = new Random();
+        Random rand = new Random();
         int[] infoNave = new int [4];
 
         for(i=0;i<4;i++)
             for(j=0;j<navi[1][i];j++) {
-                infoNave[0]=rnd.nextInt(9);
-                infoNave[1]=rnd.nextInt(9);
-                infoNave[2]=rnd.nextInt(1);
+                infoNave[0]=rand.nextInt(10);
+                infoNave[1]=rand.nextInt(10);
+                infoNave[2]=rand.nextInt(2);
                 infoNave[3]=navi[0][i];
                 if(controlloCelle(campoPc,infoNave)==true)
                     campoPc=inserimentoNave(campoPc, infoNave);
