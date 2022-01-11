@@ -145,7 +145,7 @@ public class BattagliaNavale {
                         System.out.println("Inserire direzione (0->orizzontale, 1->verticale):");
                         infoNave[2] = in.nextInt();
                     }
-                    while (infoNave[2] < 0 || infoNave[2]+i > 1);
+                    while (infoNave[2] < 0 || infoNave[2] > 1);
                     valido=controlloCelle(campoPlayer, infoNave);
                     if (valido==false)
                         System.out.println("Inserimento invalido. Riprova");
