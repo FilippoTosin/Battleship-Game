@@ -115,20 +115,22 @@ public class BattagliaNavale {
                         System.out.println("Inserire riga (valore tra 1 e 10 compresi):");
                         infoNave[0] = in.nextInt() - 1;
                     }
-                    while (infoNave[0] < 1 || infoNave[0] > 10);
+                    while (infoNave[0] < 0 || infoNave[0] > 9);
                     do {
                         System.out.println("Inserire colonna (valore tra 1 e 10 compresi):");
                         infoNave[1] = in.nextInt() - 1;
                     }
-                    while (infoNave[1] < 1 || infoNave[1] > 10);
+                    while (infoNave[1] < 0 || infoNave[1] > 9);
                     do {
                         System.out.println("Inserire direzione (0->orizzontale, 1->verticale):");
-                        infoNave[2] = in.nextInt() - 1;
+                        infoNave[2] = in.nextInt();
                     }
                     while (infoNave[2] < 0 || infoNave[2] > 1);
                     valido=controlloCelle(campoPlayer,infoNave);
                 }
                 while (valido==false);
+                inserimentoNave(campoPlayer, infoNave);
+                stampaCampo(campoPlayer, campoPlayer);
             }
         return campoPlayer;
     }
