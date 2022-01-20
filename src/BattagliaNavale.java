@@ -21,7 +21,7 @@ public class BattagliaNavale {
                 System.out.print((i-1)/2+1+" ");
                 for(j=0;j<10;j++) {
                     System.out.print("| ");
-                    if(campoPlayer[(i - 1) / 2][j]==1)
+                    if(campoPlayer[(i-1)/2][j]==1)
                         System.out.print("1 ");
                     else
                         System.out.print("  ");
@@ -32,7 +32,7 @@ public class BattagliaNavale {
                 System.out.print((i-1)/2+1+" ");
                 for(j=0;j<10;j++) {
                     System.out.print("| ");
-                    if(campoPc[(i - 1) / 2][j]<2)
+                    if(campoPc[(i-1)/2][j]<2)
                         System.out.print("  ");
                     else
                         System.out.print(campoPc[(i - 1) / 2][j]+" ");
