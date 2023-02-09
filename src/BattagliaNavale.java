@@ -88,7 +88,6 @@ public class BattagliaNavale {
     // Metodo che genera un numero casuale dati i due estremi di un range (inclusi)
     public static int numeroRandom(int min, int max) {
         Random rand = new Random();
-
         return rand.nextInt((max - min) + 1) + min;
     }
 
